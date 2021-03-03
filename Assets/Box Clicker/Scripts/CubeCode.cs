@@ -6,13 +6,16 @@ using UnityEngine;
 public class CubeCode : MonoBehaviour
 {
     // Cube Row and Number in row in example."Cube 2,3" is row 2 column 3
-    public int cubeRow;
-    public int cubeColumn;
+    private int cubeRow;
+    private int cubeColumn;
+    private bool isThisTheLastCube;
 
     // Call on the next Cube
     // public GameObject nextCube;
-    [SerializeField] private CubeCode nextCube;
+    private CubeCode nextCube;
 
+    // Links to the overall Column
+    public ArrayOfColumns parentCubeColumn;
 
     // public GameObject moneyCounter;
     [SerializeField] private Money moneyCount;
@@ -37,12 +40,11 @@ public class CubeCode : MonoBehaviour
     private float cubeHitTorqueMax;
 
     // This is the pure color
-    public Color cubePureColour;
+    private Color cubePureColour;
 
     // This is the color all cubes will come to 
     private Color cubeUntouchedColour = new Color(0.655f, 0.624f, 0.549f, 0.000f);
     private Color cubeColourGap;
-    private Color firstColor;
 
     // Sets material
     [SerializeField] private Material[] cubeMaterial = new Material[2];
@@ -62,8 +64,15 @@ public class CubeCode : MonoBehaviour
     // Is the cube Completed
     private bool cubeCompleted = false;
 
-    void Start()
+
+    public void GetCubeVariables(int r, int c, Color x, CubeCode l, bool z)
     {
+        cubeRow = r;
+        cubeColumn = c;
+        cubePureColour = x;
+        nextCube = l;
+        isThisTheLastCube = z;
+
         // Getting materials
         rend = GetComponent<Renderer>();
         rend.enabled = true;
@@ -73,7 +82,7 @@ public class CubeCode : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         // How much money a cube will give and 90% - 130% of it
-        float coinBaseMidPoint  = (10 + (8 * (cubeColumn - 1)) * (8 * cubeRow-1));
+        float coinBaseMidPoint = (10 + (8 * (cubeColumn - 1)) * (8 * cubeRow - 1));
         coinMin = Mathf.RoundToInt(coinBaseMidPoint * 0.9f);
         coinMax = Mathf.RoundToInt(coinBaseMidPoint * 1.3f);
 
@@ -91,11 +100,47 @@ public class CubeCode : MonoBehaviour
         cubeHitTorqueMax = cubeHitTorqueMin + cubeColumn;
 
         // Gets max count getting 8 by default and expedentially harder per row
-        cubeMaxCount = 8 * (float)System.Math.Pow(1.2f , (cubeRow - 1));
+        cubeMaxCount = 8 * (float)System.Math.Pow(1.2f, (cubeRow - 1));
 
         // Gets the difference between the default gray and the final colour
         cubeColourGap = (cubePureColour - cubeUntouchedColour) / (cubeMaxCount - 1);
     }
+
+    /// This was all in the start function but changed so that I didn't need to worry about what came first
+    ////void Start()
+    ////{
+    ////    // Getting materials
+    ////    rend = GetComponent<Renderer>();
+    ////    rend.enabled = true;
+    ////    rend.sharedMaterial = cubeMaterial[0];
+
+    ////    // Getting rigidbody
+    ////    rb = GetComponent<Rigidbody>();
+
+    ////    // How much money a cube will give and 90% - 130% of it
+    ////    float coinBaseMidPoint = (10 + (8 * (cubeColumn - 1)) * (8 * cubeRow - 1));
+    ////    coinMin = Mathf.RoundToInt(coinBaseMidPoint * 0.9f);
+    ////    coinMax = Mathf.RoundToInt(coinBaseMidPoint * 1.3f);
+
+    ////    // When should you % get Multiplied money
+    ////    coinMutiplierChance = 5;
+    ////    coinMutiplierAmmount = 3;
+
+    ////    // Coin Average
+    ////    coinAverage = Mathf.RoundToInt(Mathf.Floor(((float)coinMax - coinMin) / 2f) + coinMin);
+
+    ////    // Cube Force and Rotation on click and thus compleation
+    ////    cubeHitForceMin = 2 * 8 * cubeColumn;
+    ////    cubeHitForceMax = cubeHitForceMin + 8 * cubeColumn;
+    ////    cubeHitTorqueMin = cubeColumn * cubeRow;
+    ////    cubeHitTorqueMax = cubeHitTorqueMin + cubeColumn;
+
+    ////    // Gets max count getting 8 by default and expedentially harder per row
+    ////    cubeMaxCount = 8 * (float)System.Math.Pow(1.2f, (cubeRow - 1));
+
+    ////    // Gets the difference between the default gray and the final colour
+    ////    cubeColourGap = (cubePureColour - cubeUntouchedColour) / (cubeMaxCount - 1);
+    ////}
 
     private void Update()
     {
@@ -104,12 +149,14 @@ public class CubeCode : MonoBehaviour
         {
             cubeCount = cubeCount - (1f / 5f * Time.deltaTime);
             rend.material.color = rend.material.color - cubeColourGap * (1f / 5f * Time.deltaTime);
-            if (cubeCount < 0)
-            {
-                cubeCount = 0;
-                rend.material.color = cubeUntouchedColour;
-            }
         }
+
+        if (cubeCount <= 0)
+        {
+            cubeCount = 0;
+            rend.material.color = cubeUntouchedColour;
+        }
+
     }
 
 
@@ -127,7 +174,7 @@ public class CubeCode : MonoBehaviour
         {
             cubeActive = true;
             rend.sharedMaterial = cubeMaterial[1];
-            rend.material.color = cubeUntouchedColour; 
+            rend.material.color = cubeUntouchedColour;
             return;
         }
 
@@ -164,13 +211,12 @@ public class CubeCode : MonoBehaviour
         float jumpHeight;
         jumpHeight = ((float)moneyGiven / coinAverage) + 1;
 
-        bool doubleCoinCheck = false;
+        // On double there should be a visual effect
         int x = Random.Range(0, 100);
         if ((x < coinMutiplierChance))
         {
             moneyGiven = coinMax * coinMutiplierAmmount;
             jumpHeight = 3;
-            doubleCoinCheck = true;
         }
 
         // Jumps up relative to coin given
@@ -191,4 +237,8 @@ public class CubeCode : MonoBehaviour
         // RUN GLOW SPRITE
     }
 
+    public void cubeCompletedAndDone()
+    {
+        rend.material.color = cubeUntouchedColour;
+    }
 }

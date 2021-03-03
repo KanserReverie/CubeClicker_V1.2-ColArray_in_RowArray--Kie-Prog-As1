@@ -214,6 +214,7 @@ GameObject:
   - component: {fileID: 122517814}
   - component: {fileID: 122517813}
   - component: {fileID: 122517812}
+  - component: {fileID: 122517815}
   m_Layer: 0
   m_Name: Cube 3,2
   m_TagString: Untagged
@@ -297,6 +298,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 122517810}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &122517815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122517810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6faa61568a3881488ce0b6b59d1ed73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentCubeColumn: {fileID: 172726055}
+  moneyCount: {fileID: 1273837599}
+  cubeMaterial:
+  - {fileID: 2100000, guid: e93b4652834c99a49bb3d94e46e3facb, type: 2}
+  - {fileID: 2100000, guid: e246ca2e757902548a8907fb1b55c6fc, type: 2}
 --- !u!1 &148089062
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,13 +482,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 172726054}
+  - component: {fileID: 172726055}
   m_Layer: 0
   m_Name: Row 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &172726054
 Transform:
   m_ObjectHideFlags: 0
@@ -489,6 +508,28 @@ Transform:
   m_Father: {fileID: 1361716384}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &172726055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172726053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 287e5293b0f4fd44f8be0730311b9c73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllOfTheCubesInRow:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  colorsOfCubes:
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &249686219
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,11 +705,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6faa61568a3881488ce0b6b59d1ed73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubeRow: 1
-  cubeColumn: 4
-  nextCube: {fileID: 0}
+  parentCubeColumn: {fileID: 1906966499}
   moneyCount: {fileID: 1273837599}
-  cubePureColour: {r: 0.94078606, g: 0.9433962, b: 0, a: 0}
   cubeMaterial:
   - {fileID: 2100000, guid: e93b4652834c99a49bb3d94e46e3facb, type: 2}
   - {fileID: 2100000, guid: e246ca2e757902548a8907fb1b55c6fc, type: 2}
@@ -779,6 +817,7 @@ GameObject:
   - component: {fileID: 439221478}
   - component: {fileID: 439221477}
   - component: {fileID: 439221476}
+  - component: {fileID: 439221479}
   m_Layer: 0
   m_Name: Cube 3,4
   m_TagString: Untagged
@@ -862,6 +901,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 439221474}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &439221479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439221474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6faa61568a3881488ce0b6b59d1ed73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentCubeColumn: {fileID: 172726055}
+  moneyCount: {fileID: 1273837599}
+  cubeMaterial:
+  - {fileID: 2100000, guid: e93b4652834c99a49bb3d94e46e3facb, type: 2}
+  - {fileID: 2100000, guid: e246ca2e757902548a8907fb1b55c6fc, type: 2}
 --- !u!1 &514081896
 GameObject:
   m_ObjectHideFlags: 0
@@ -871,13 +927,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 514081897}
+  - component: {fileID: 514081898}
   m_Layer: 0
   m_Name: Row 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &514081897
 Transform:
   m_ObjectHideFlags: 0
@@ -896,6 +953,28 @@ Transform:
   m_Father: {fileID: 1361716384}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &514081898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514081896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 287e5293b0f4fd44f8be0730311b9c73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllOfTheCubesInRow:
+  - {fileID: 630462230}
+  - {fileID: 778654832}
+  - {fileID: 582647360}
+  - {fileID: 1451136628}
+  colorsOfCubes:
+  - {r: 0, g: 0.7176471, b: 0.6792453, a: 0}
+  - {r: 0.6037736, g: 0, b: 0.33557245, a: 0}
+  - {r: 0.6886792, g: 0.33461994, b: 0.016242431, a: 0}
+  - {r: 0, g: 0.29728103, b: 0.3679245, a: 0}
 --- !u!1 &582647355
 GameObject:
   m_ObjectHideFlags: 0
@@ -908,6 +987,7 @@ GameObject:
   - component: {fileID: 582647359}
   - component: {fileID: 582647358}
   - component: {fileID: 582647357}
+  - component: {fileID: 582647360}
   m_Layer: 0
   m_Name: Cube 2,3
   m_TagString: Untagged
@@ -991,6 +1071,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 582647355}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &582647360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582647355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6faa61568a3881488ce0b6b59d1ed73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentCubeColumn: {fileID: 514081898}
+  moneyCount: {fileID: 1273837599}
+  cubeMaterial:
+  - {fileID: 2100000, guid: e93b4652834c99a49bb3d94e46e3facb, type: 2}
+  - {fileID: 2100000, guid: e246ca2e757902548a8907fb1b55c6fc, type: 2}
 --- !u!1 &583291445
 GameObject:
   m_ObjectHideFlags: 0
@@ -1124,6 +1221,7 @@ GameObject:
   - component: {fileID: 630462229}
   - component: {fileID: 630462228}
   - component: {fileID: 630462227}
+  - component: {fileID: 630462230}
   m_Layer: 0
   m_Name: Cube 2,1
   m_TagString: Untagged
@@ -1207,6 +1305,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 630462225}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &630462230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630462225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6faa61568a3881488ce0b6b59d1ed73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentCubeColumn: {fileID: 514081898}
+  moneyCount: {fileID: 1273837599}
+  cubeMaterial:
+  - {fileID: 2100000, guid: e93b4652834c99a49bb3d94e46e3facb, type: 2}
+  - {fileID: 2100000, guid: e246ca2e757902548a8907fb1b55c6fc, type: 2}
 --- !u!1 &730835417
 GameObject:
   m_ObjectHideFlags: 0
@@ -1316,11 +1431,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6faa61568a3881488ce0b6b59d1ed73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubeRow: 1
-  cubeColumn: 1
-  nextCube: {fileID: 1892975768}
+  parentCubeColumn: {fileID: 1906966499}
   moneyCount: {fileID: 1273837599}
-  cubePureColour: {r: 0.11121673, g: 0.6415094, b: 0, a: 0}
   cubeMaterial:
   - {fileID: 2100000, guid: e93b4652834c99a49bb3d94e46e3facb, type: 2}
   - {fileID: 2100000, guid: e246ca2e757902548a8907fb1b55c6fc, type: 2}
@@ -1352,6 +1464,7 @@ GameObject:
   - component: {fileID: 778654831}
   - component: {fileID: 778654830}
   - component: {fileID: 778654829}
+  - component: {fileID: 778654832}
   m_Layer: 0
   m_Name: Cube 2,2
   m_TagString: Untagged
@@ -1435,6 +1548,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 778654827}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &778654832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778654827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6faa61568a3881488ce0b6b59d1ed73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentCubeColumn: {fileID: 514081898}
+  moneyCount: {fileID: 1273837599}
+  cubeMaterial:
+  - {fileID: 2100000, guid: e93b4652834c99a49bb3d94e46e3facb, type: 2}
+  - {fileID: 2100000, guid: e246ca2e757902548a8907fb1b55c6fc, type: 2}
 --- !u!1 &1210404531
 GameObject:
   m_ObjectHideFlags: 0
@@ -1767,6 +1897,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1361716384}
+  - component: {fileID: 1361716385}
   m_Layer: 0
   m_Name: Rows
   m_TagString: Untagged
@@ -1791,6 +1922,22 @@ Transform:
   m_Father: {fileID: 1937247338}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1361716385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361716383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b33dbc9a4576cb44b8f3abe04b84111, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllOfTheRows:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1365573969
 GameObject:
   m_ObjectHideFlags: 0
@@ -1886,6 +2033,7 @@ GameObject:
   - component: {fileID: 1451136627}
   - component: {fileID: 1451136626}
   - component: {fileID: 1451136625}
+  - component: {fileID: 1451136628}
   m_Layer: 0
   m_Name: Cube 2,4
   m_TagString: Untagged
@@ -1969,6 +2117,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1451136623}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1451136628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451136623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6faa61568a3881488ce0b6b59d1ed73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentCubeColumn: {fileID: 514081898}
+  moneyCount: {fileID: 1273837599}
+  cubeMaterial:
+  - {fileID: 2100000, guid: e93b4652834c99a49bb3d94e46e3facb, type: 2}
+  - {fileID: 2100000, guid: e246ca2e757902548a8907fb1b55c6fc, type: 2}
 --- !u!1 &1457656945
 GameObject:
   m_ObjectHideFlags: 0
@@ -2074,6 +2239,7 @@ GameObject:
   - component: {fileID: 1537260260}
   - component: {fileID: 1537260259}
   - component: {fileID: 1537260258}
+  - component: {fileID: 1537260261}
   m_Layer: 0
   m_Name: Cube 3,1
   m_TagString: Untagged
@@ -2157,6 +2323,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1537260256}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1537260261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537260256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6faa61568a3881488ce0b6b59d1ed73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentCubeColumn: {fileID: 172726055}
+  moneyCount: {fileID: 1273837599}
+  cubeMaterial:
+  - {fileID: 2100000, guid: e93b4652834c99a49bb3d94e46e3facb, type: 2}
+  - {fileID: 2100000, guid: e246ca2e757902548a8907fb1b55c6fc, type: 2}
 --- !u!1 &1671980226
 GameObject:
   m_ObjectHideFlags: 0
@@ -2344,6 +2527,7 @@ GameObject:
   - component: {fileID: 1798949681}
   - component: {fileID: 1798949680}
   - component: {fileID: 1798949679}
+  - component: {fileID: 1798949682}
   m_Layer: 0
   m_Name: Cube 3,3
   m_TagString: Untagged
@@ -2427,6 +2611,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1798949677}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1798949682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798949677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6faa61568a3881488ce0b6b59d1ed73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentCubeColumn: {fileID: 172726055}
+  moneyCount: {fileID: 1273837599}
+  cubeMaterial:
+  - {fileID: 2100000, guid: e93b4652834c99a49bb3d94e46e3facb, type: 2}
+  - {fileID: 2100000, guid: e246ca2e757902548a8907fb1b55c6fc, type: 2}
 --- !u!1 &1892975763
 GameObject:
   m_ObjectHideFlags: 0
@@ -2536,11 +2737,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6faa61568a3881488ce0b6b59d1ed73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubeRow: 1
-  cubeColumn: 2
-  nextCube: {fileID: 1895858023}
+  parentCubeColumn: {fileID: 1906966499}
   moneyCount: {fileID: 1273837599}
-  cubePureColour: {r: 0.009032628, g: 0, b: 0.5943396, a: 0}
   cubeMaterial:
   - {fileID: 2100000, guid: e93b4652834c99a49bb3d94e46e3facb, type: 2}
   - {fileID: 2100000, guid: e246ca2e757902548a8907fb1b55c6fc, type: 2}
@@ -2669,11 +2867,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6faa61568a3881488ce0b6b59d1ed73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubeRow: 1
-  cubeColumn: 3
-  nextCube: {fileID: 299274171}
+  parentCubeColumn: {fileID: 1906966499}
   moneyCount: {fileID: 1273837599}
-  cubePureColour: {r: 0.6509434, g: 0.08767436, b: 0, a: 0}
   cubeMaterial:
   - {fileID: 2100000, guid: e93b4652834c99a49bb3d94e46e3facb, type: 2}
   - {fileID: 2100000, guid: e246ca2e757902548a8907fb1b55c6fc, type: 2}
@@ -2702,6 +2897,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1906966498}
+  - component: {fileID: 1906966499}
   m_Layer: 0
   m_Name: Row 1
   m_TagString: Untagged
@@ -2727,6 +2923,28 @@ Transform:
   m_Father: {fileID: 1361716384}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1906966499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906966497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 287e5293b0f4fd44f8be0730311b9c73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllOfTheCubesInRow:
+  - {fileID: 730835422}
+  - {fileID: 1892975768}
+  - {fileID: 1895858023}
+  - {fileID: 299274171}
+  colorsOfCubes:
+  - {r: 0, g: 0.4056604, b: 0.015137173, a: 0}
+  - {r: 0.4811321, g: 0, b: 0, a: 0}
+  - {r: 0.8496841, g: 0.9056604, b: 0, a: 0}
+  - {r: 1, g: 0, b: 0.76761675, a: 0}
 --- !u!1 &1937247337
 GameObject:
   m_ObjectHideFlags: 0
