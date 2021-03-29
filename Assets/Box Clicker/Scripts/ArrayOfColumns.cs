@@ -10,14 +10,16 @@ public class ArrayOfColumns : MonoBehaviour
     public Color[] colorsOfCubes = new Color[4];
     private ArrayOfColumns thisColumn;
     private ArrayOfRows theArrayOfAllRows;
+    private ArrayOfColumns AoC;
 
 
-   
 
     public void GetRowVariables(int x)
     {
         RowNumber = x;
         isComplete = false;
+
+        AoC = this;
 
         // When activated it will go through each cube in the row and add in each variable
         for (int i = 0; i < AllOfTheCubesInRow.Length; i++)
@@ -25,11 +27,11 @@ public class ArrayOfColumns : MonoBehaviour
 
             if ((i + 1) >= AllOfTheCubesInRow.Length)
             {
-                AllOfTheCubesInRow[i].GetCubeVariables(RowNumber, i + 1, colorsOfCubes[i], AllOfTheCubesInRow[i], true);
+                AllOfTheCubesInRow[i].GetCubeVariables(RowNumber, i + 1, colorsOfCubes[i], AllOfTheCubesInRow[i], true, AoC);
             }
             else
             {
-                AllOfTheCubesInRow[i].GetCubeVariables(RowNumber, i + 1, colorsOfCubes[i], AllOfTheCubesInRow[i + 1], false);
+                AllOfTheCubesInRow[i].GetCubeVariables(RowNumber, i + 1, colorsOfCubes[i], AllOfTheCubesInRow[i + 1], false, AoC);
             }
         }
     }

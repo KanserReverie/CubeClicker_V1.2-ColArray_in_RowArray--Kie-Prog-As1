@@ -15,6 +15,16 @@ public class Money : MonoBehaviour
     {
         currentMoney = 0;
         currentMoneyDisplay.text = pricingText + currentMoney.ToString("N0");
+
+//        Button btn;
+
+  //      btn.onClick.AddListener(test);
+ //       btn.onClick.RemoveAllListeners();
+    }
+
+    void test()
+    {
+
     }
 
     public void boxBreak(int currencyGained)

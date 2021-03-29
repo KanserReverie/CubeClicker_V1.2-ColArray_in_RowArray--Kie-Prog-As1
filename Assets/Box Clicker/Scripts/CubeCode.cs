@@ -64,14 +64,14 @@ public class CubeCode : MonoBehaviour
     // Is the cube Completed
     private bool cubeCompleted = false;
 
-
-    public void GetCubeVariables(int r, int c, Color x, CubeCode l, bool z)
+    public void GetCubeVariables(int r, int c, Color x, CubeCode l, bool z, ArrayOfColumns AC)
     {
         cubeRow = r;
         cubeColumn = c;
         cubePureColour = x;
         nextCube = l;
         isThisTheLastCube = z;
+        parentCubeColumn = AC;
 
         // Getting materials
         rend = GetComponent<Renderer>();
